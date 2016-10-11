@@ -1,5 +1,14 @@
-#!/usr/bin/python
-# encoding=utf8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os
+from datetime import datetime
+from flask import Flask, request, flash, url_for, redirect, \
+     render_template, abort, send_from_directory
+
+app = Flask(__name__)
+app.config.from_pyfile('flaskapp.cfg')
+
 import os
 import os, sys
 
@@ -11,7 +20,7 @@ from microsofttranslator import Translator
 from flask import Flask
 from flask import request
 from flask import render_template
-app = Flask(__name__)
+
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))   # refers to application_top
 APP_STATIC = os.path.join(APP_ROOT, 'static')
@@ -125,7 +134,7 @@ def worddb(s="", d=""):
 # def application(environ, start_response):
 def application():
     import translator
-    # import ipdb;ipdb.set_trace()
+
     try:
         ctype = 'text/html; charset="utf8"'
         response_body = ""
@@ -135,9 +144,10 @@ def application():
 
         # word_in_farsi = "I want to go."
         word = bingTranslator.translate(word_in_farsi, "fa")
+        # import ipdb;ipdb.set_trace()
 
         if word == "":
-            word = u"واژه".encode("utf8")
+            word = u"vazhe".encode("utf8")
         text = worddb(word)
         if text != None:
             response_body = text
@@ -237,8 +247,10 @@ def application():
                         pron = u"<p>(" + word + u")</p>"
                         result = googleSuggest(tr.trf2f(pron.encode('u8'), word.encode('u8')))
                     worddb(word.encode('u8'), result.encode('u8'))
-                # response_body = response_body + ' ' + result
-                response_body = result
+
+                response_body = response_body + ' ' + result
+
+                # response_body = response_body
 
         # response_body = response_body.encode('u8')
         # status = '200 OK'
@@ -261,6 +273,7 @@ def application():
 @app.route("/")
 def test():
     return render_template('main.html')
+
 
 
 #

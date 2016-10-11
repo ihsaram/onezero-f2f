@@ -106,6 +106,7 @@ html{    background:url(http://thekitemap.com/images/feedback-img.jpg) no-repeat
 }
 
 textarea {
+    text-align:center;
     width: 100%;
     height: 150px;
     line-height: 150%;
@@ -149,6 +150,44 @@ input:focus, textarea:focus {
 	color: #3498db;
 }
 
+h1{
+    text-align:center;
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	float:left;
+	width: 100%;
+//	border: #fbfbfb solid 4px;
+	cursor:pointer;
+//	background-color: #3498db;
+	color:white;
+	font-size:24px;
+//	padding-top:22px;
+	padding-bottom:5px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+  }
+
+h2{
+    text-align:center;
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	float:left;
+	width: 100%;
+//	border: #fbfbfb solid 4px;
+	cursor:pointer;
+//	background-color: #3498db;
+	color:white;
+	font-size:10px;
+	padding-top:5px;
+	padding-bottom:0px;
+// 	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+  }
+
 .ease {
 	width: 0px;
 	height: 74px;
@@ -174,4 +213,24 @@ input:focus, textarea:focus {
 		padding-left: 3%;
 		padding-right: 3%;
 	}
+}
+
+#loading {
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   position: fixed;
+   display: block;
+   opacity: 0.7;
+   background-color: #fff;
+   z-index: 99;
+   text-align: center;
+}
+
+#loading-image {
+  position: absolute;
+  top: 100px;
+  left: 240px;
+  z-index: 100;
 }

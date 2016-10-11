@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" type="text/css" href="/static/css/form.css" media="screen"/>
-    <title></title>
+    <title>English to Persian Transliterated Translation</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
@@ -55,14 +55,31 @@
 
 <!--</div>-->
 
+<!--<div id="loadingDiv" style="display:none;">-->
+    <!--Loading Please Wait....-->
+    <!--<img src="ajax-loader.gif" alt="Loading" />-->
+<!--</div>-->
+
+
+<!--<div id="loadingDiv">-->
+  <!--&lt;!&ndash;<img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." />&ndash;&gt;-->
+    <!--salam-->
+<!--</div>-->
+
 
 <div id="form-main">
+
     <div id="form-div">
+
+        <h1>
+            Alia's Personal Farsi Dictionary
+        </h1>
+
         <form id="ajax-contact" method="GET" action="/translate">
 
             <p class="name">
                 <input name="word" type="text"
-                       class="validate[required,custom[onlyLetter],length[0,2000]] feedback-input" placeholder="Name"
+                       class="validate[required,custom[onlyLetter],length[0,2000]] feedback-input" placeholder="English phrase"
                        id="name"/>
             </p>
 
@@ -79,16 +96,16 @@
             <!--</p>-->
 
             <div class="submit">
-                <input type="submit" value="SEND" id="button-blue"/>
-
+                <input type="submit" value="TRANSLATE" id="button-blue"/>
                 <div class="ease"></div>
             </div>
         </form>
 
-            <textarea id="translated"  >
-        Your farsi transliterated translation.
-    </textarea>
+            <textarea id="translated">Your farsi transliterated translation.</textarea>
 
+                <h2>Created by:
+                    <a href="http://web.engr.illinois.edu/~abditag2/">Fardin Abdi</a>
+                    </h2>
     </div>
 
 
@@ -98,6 +115,18 @@
 </html>
 
 <script>
+
+var $loading = $('#loadingDiv').hide();
+$(document)
+  .ajaxStart(function () {
+//    $loading.show();
+        $(translated).text("please wait ... ");
+  })
+  .ajaxStop(function () {
+//    $loading.hide();
+    $(translated).text("");
+  });
+
 $(function() {
     // Get the form.
     var form = $('#ajax-contact');
@@ -113,7 +142,7 @@ $(function() {
     $.ajax({
         type: 'GET',
         url: $(form).attr('action'),
-        data: formData
+        data: formData,
 //      success: function(response) {
 //        console.log(response);
 //        $('.form-control').val(response); // personally I would give your textbox an ID
@@ -123,7 +152,7 @@ $(function() {
 
     .done(function(response) {
         // Make sure that the formMessages div has the 'success' class.
-        console.log(response)
+        //console.log(response)
         //$(formMessages).removeClass('error');
         //$(formMessages).addClass('success');
 

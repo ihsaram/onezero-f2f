@@ -1,11 +1,24 @@
-onezero-f2f
-===========
+# A basic Flask quickstart 
+*With support for serving easy APIs and static content*
 
-Farsi to Finglish converter uses vowel represenations (in Persian) from Dehkhoda dictionary (www.loghatnaameh.com) and fa.wiktionary.org (currently as backup) and guesses better translations using google suggestions.
-This project comes self contained with bs4 (BeautifulSoup4) and requests python libraries.
-The application is a django application file which uses translator.py to translate Farsi to Finglish.
-Static database for already translated words are stored in worddb.xml
-After installing this application on your django server, you can see the translation of words from your django url using GET request with word=[word in Persian] which [word in Persian] is the word that you want to translate to Finglish in Farsi.
-Latest working version of this API is available in http://f2f-onezeroir.rhcloud.com/?word=%D9%81%D8%A7%D8%B1%D8%B3%DB%8C
-Any kind of contribution to this project is most welcome.
-There's a plugin for chrome in https://chrome.google.com/webstore/detail/farsi2finglish-translator/fjgndmomllkaoodpcclfeiamjbcncbmc which you can use to select words in Persian and look for the Finglish translation in your browser (special thanks to Garret Verstegen).
+[![Build Status](http://img.shields.io/travis/ryanj/flask-base.svg)](https://travis-ci.org/ryanj/flask-base) [![Deploy](https://img.shields.io/badge/Launch_on-OpenShift-brightgreen.svg)](https://openshift.redhat.com/app/console/application_type/custom?cartridges%5B%5D=python-2&initial_git_url=https%3A%2F%2Fgithub.com%2Fryanj%2Fflask-base.git&name=flask)
+
+[![Launch on OpenShift](http://launch-shifter.rhcloud.com/button.svg)](https://openshift.redhat.com/app/console/application_type/custom?cartridges%5B%5D=python-2.7&initial_git_url=https%3A%2F%2Fgithub.com%2Fryanj%2Fflask-base.git&name=flask)
+
+To deploy a clone of this application using the [`rhc` command line tool](http://rubygems.org/gems/rhc):
+
+    rhc app create flask python-2.7 --from-code=https://github.com/ryanj/flask-base.git
+    
+Or [link to a web-based clone+deploy](https://openshift.redhat.com/app/console/application_type/custom?cartridges%5B%5D=python-2.7&initial_git_url=https%3A%2F%2Fgithub.com%2Fryanj%2Fflask-base.git) on [OpenShift Online](http://OpenShift.com) or on [your own OpenShift cloud](http://openshift.github.io): 
+
+    https://openshift.redhat.com/app/console/application_type/custom?cartridges%5B%5D=python-2.7&initial_git_url=https%3A%2F%2Fgithub.com%2Fryanj%2Fflask-base.git
+
+## Local server
+Start a local webserver by running:
+
+```bash
+python app.py
+```
+
+## License
+This code is dedicated to the public domain to the maximum extent permitted by applicable law, pursuant to CC0 (http://creativecommons.org/publicdomain/zero/1.0/)
